@@ -1,18 +1,26 @@
+/* Body styles with background image */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-image: url('https://img.freepik.com/free-photo/elevated-view-laptop-earphones-crumpled-papers-pencil-blank-spiral-notepad-frame-black-background_23-2148080331.jpg'); /* Replace with your image path */
+    background-size: cover; /* Makes the background image cover the entire screen */
+    background-position: center center; /* Centers the background image */
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
+    color: #fff; /* Text color changed to white for contrast */
+    height: 100vh; /* Ensures the page covers full viewport */
 }
 
+/* Header section with darker background */
 header {
-    background: #333;
+    background: rgba(51, 51, 51, 0.8); /* Semi-transparent dark background */
     color: #fff;
     padding-top: 30px;
     min-height: 70px;
     border-bottom: #77aaff 3px solid;
     text-align: center;
+    animation: fadeIn 1s ease-in-out; /* Animation for header fade-in */
 }
 
 .profile-container {
@@ -24,6 +32,9 @@ header {
     height: 150px;
     border-radius: 50%;
     margin-bottom: 10px;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: fadeIn 2s ease-out 0.5s forwards; /* Profile picture fade-in and scale-up */
 }
 
 h1 {
@@ -35,13 +46,16 @@ p {
     margin: 10px 0;
 }
 
+/* Section styles */
 section {
     padding: 20px;
     margin: 20px;
-    background: white;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
     border-radius: 8px;
+    animation: slideIn 1s ease-out; /* Animation for section slide-in */
 }
 
+/* Social media section */
 .social-media {
     margin-top: 20px;
 }
@@ -50,8 +64,15 @@ section {
     color: #333;
     margin: 0 10px;
     font-size: 24px;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
+.icon:hover {
+    transform: scale(1.2);
+    color: #77aaff;
+}
+
+/* Button styles with hover animation */
 .btn {
     display: inline-block;
     background: #333;
@@ -60,8 +81,64 @@ section {
     margin-top: 20px;
     border-radius: 5px;
     text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .btn:hover {
     background: #77aaff;
+    transform: scale(1.1);
+}
+
+/* Fade-in animation for elements */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide-in animation for sections */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade-in animation for each section when scrolled into view */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll; /* Fix background on smaller screens */
+    }
+
+    header {
+        padding-top: 20px; /* Adjust header padding for smaller screens */
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+    }
 }
