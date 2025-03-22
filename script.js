@@ -1,21 +1,16 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const sections = document.querySelectorAll("section");
+// Script for fade-in animations when sections come into view
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.fade-in');
 
-    // Intersection Observer to detect when sections enter the viewport
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Adding a class to trigger animation
-                entry.target.classList.add("visible");
+    const checkVisibility = () => {
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                section.classList.add('visible');
             }
         });
-    }, {
-        threshold: 0.1 // 10% of the section must be visible to trigger animation
-    });
+    };
 
-    // Initial setup for sections before they enter the viewport
-    sections.forEach(section => {
-        section.classList.add("fade-in"); // Add a fade-in class
-        observer.observe(section);
-    });
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility(); // Initial check when the page loads
 });
