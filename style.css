@@ -1,26 +1,24 @@
-/* Body styles without background image */
+/* Global styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Set a light background color or remove this line for no background */
-    color: #333; /* Text color changed to dark for better readability */
-    height: 100vh; /* Ensures the page covers full viewport */
+    background-color: #f4f4f4; /* Light background color */
+    color: #333; /* Dark text color */
+    overflow-x: hidden;
 }
 
-/* Header section with darker background */
+/* Header styles */
 header {
-    background: rgba(51, 51, 51, 0.8); /* Semi-transparent dark background */
-    color: #fff;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: #77aaff 3px solid;
+    background: #333;
+    color: white;
     text-align: center;
-    animation: fadeIn 1s ease-in-out; /* Animation for header fade-in */
+    padding: 40px 0;
 }
 
 .profile-container {
+    display: inline-block;
     text-align: center;
 }
 
@@ -28,31 +26,94 @@ header {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin-bottom: 10px;
     opacity: 0;
-    transform: scale(0.5);
-    animation: fadeIn 2s ease-out 0.5s forwards; /* Profile picture fade-in and scale-up */
+    transform: scale(0.6);
+    animation: fadeIn 2s ease-out forwards; /* Fade in the profile picture */
 }
 
 h1 {
-    margin: 0;
-    font-size: 2.2em;
+    margin-top: 20px;
+    font-size: 2.5em;
 }
 
 p {
-    margin: 10px 0;
+    margin-top: 10px;
+    font-size: 1.1em;
 }
 
 /* Section styles */
 section {
-    padding: 20px;
-    margin: 20px;
-    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 50px 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1000px;
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
-    animation: slideIn 1s ease-out; /* Animation for section slide-in */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideIn 1.5s ease-out forwards;
 }
 
-/* Social media section */
+/* Animation for sections */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* About section */
+#about {
+    background-color: #f9f9f9;
+}
+
+#about h2 {
+    font-size: 2em;
+    color: #333;
+}
+
+/* Qualifications section */
+#qualifications h2 {
+    font-size: 2em;
+}
+
+#qualifications ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#qualifications li {
+    font-size: 1.2em;
+}
+
+/* Skills section */
+#skills h2 {
+    font-size: 2em;
+}
+
+#skills ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#skills li {
+    font-size: 1.2em;
+}
+
+/* Contact section */
+#contact h2 {
+    font-size: 2em;
+    color: #333;
+}
+
+#contact p {
+    font-size: 1.1em;
+}
+
+/* Social media icons */
 .social-media {
     margin-top: 20px;
 }
@@ -60,8 +121,8 @@ section {
 .icon {
     color: #333;
     margin: 0 10px;
-    font-size: 24px;
-    transition: transform 0.3s ease, color 0.3s ease;
+    font-size: 2em;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .icon:hover {
@@ -69,12 +130,12 @@ section {
     color: #77aaff;
 }
 
-/* Button styles with hover animation */
+/* Button styles */
 .btn {
     display: inline-block;
     background: #333;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 20px;
     margin-top: 20px;
     border-radius: 5px;
     text-decoration: none;
@@ -86,48 +147,10 @@ section {
     transform: scale(1.1);
 }
 
-/* Fade-in animation for elements */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Slide-in animation for sections */
-@keyframes slideIn {
-    0% {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Fade-in animation for each section when scrolled into view */
-.fade-in {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.fade-in.visible {
-    opacity: 1;
-}
-
-/* For mobile devices */
+/* Media queries for responsive design */
 @media (max-width: 768px) {
-    body {
-        background-attachment: scroll; /* Fix background on smaller screens */
-    }
-
     header {
-        padding-top: 20px; /* Adjust header padding for smaller screens */
+        padding: 30px 0;
     }
 
     .profile-pic {
@@ -135,7 +158,38 @@ section {
         height: 120px;
     }
 
+    section {
+        width: 90%;
+    }
+
+    .icon {
+        font-size: 1.8em;
+    }
+
     .btn {
-        padding: 8px 16px;
+        padding: 10px 18px;
+    }
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
