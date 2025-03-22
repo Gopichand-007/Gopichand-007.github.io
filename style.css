@@ -1,14 +1,15 @@
-/* Body styles with background image */
+/* Body styles without background image */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-image: url('https://img.freepik.com/free-photo/elevated-view-laptop-earphones-crumpled-papers-pencil-blank-spiral-notepad-frame-black-background_23-2148080331.jpg'); /* Replace with your image path */
-    background-size: cover; /* Makes the background image cover the entire screen */
-    background-position: center center; /* Centers the background image */
-    background-attachment: fixed; /* Keeps the background fixed when scrolling */
-    color: #fff; /* Text color changed to white for contrast */
+    /* background-image: url('https://img.freepik.com/free-photo/elevated-view-laptop-earphones-crumpled-papers-pencil-blank-spiral-notepad-frame-black-background_23-2148080331.jpg'); */ /* Background image removed */
+    background-color: #f4f4f4; /* Optional: You can add a background color instead */
+    background-size: cover; /* Optional: Remove or adjust if no background image */
+    background-position: center center; /* Optional: Adjust if no background image */
+    background-attachment: fixed; /* Optional: Remove if not needed */
+    color: #333; /* Text color changed to dark for contrast */
     height: 100vh; /* Ensures the page covers full viewport */
 }
 
